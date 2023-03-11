@@ -1,6 +1,7 @@
 import asyncio
 import os
 import sys
+import readline
 from time import time
 
 GAME_NAME = '''
@@ -30,9 +31,12 @@ class TheGame:
             self.banner = ""
             self.banner += GAME_NAME
             ellepsed = time() - self.start_time
-            self.banner += str(int(ellepsed)) + 's\r\n'
+            self.banner += (
+                f"\r\n{'Ellepsed time: ':>65}{str(int(ellepsed)):>5}s\r\n"
+            )
             self.banner += self.history + '\r\n'
-            self.banner += 'what? :'
+            line_buff = readline.get_line_buffer()
+            self.banner += 'what? : ' + line_buff
             print(self.banner, end="")
             await asyncio.sleep(1)
         
