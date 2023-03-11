@@ -3,6 +3,14 @@ import os
 import sys
 from time import time
 
+GAME_NAME = '''
+##     ###### ##  ## ###### ##  ##  ####     ##     ###### ###### #####
+##       ##   ##  ##   ##   ### ## ##        ##       ##   ##     ##   
+##       ##   ##  ##   ##   ## ### ## ###    ##       ##   ####   #### 
+##       ##    ####    ##   ##  ## ##  ##    ##       ##   ##     ##   
+###### ######   ##   ###### ##  ##  ####     ###### ###### ##     #####
+'''
+
 class TheGame:
 
     def __init__(self) -> None:
@@ -20,6 +28,7 @@ class TheGame:
         while True:
             os.system('cls||clear')
             self.banner = ""
+            self.banner += GAME_NAME
             ellepsed = time() - self.start_time
             self.banner += str(int(ellepsed)) + 's\r\n'
             self.banner += self.history + '\r\n'
